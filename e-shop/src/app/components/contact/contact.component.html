@@ -1,0 +1,135 @@
+
+<div style="background:transparent !important" class="jumbotron">
+    <h2 class="display-4 text-center text-success font-weight-light"><i class="fa fa-comments"></i> Nous contacter</h2>
+    <p class="text-center text-secondary">Envie de poser une question ? <br/> N'hésitez pas à nous contacter, notre service clients est disponible 24h/7</p>
+  <hr class="my-4">
+
+  <form (ngSubmit)="processForm()" class="form">
+      <div class="alert alert-success" role="alert" *ngIf="submited">
+          Merci, votre message a bien été envoyé !
+        </div>
+   <div class="row">
+
+          <div class="col-md-5">
+          <div class="form-group">
+            <select [(ngModel)]="city" class="form-control placeholder" name="city">
+                <option value="" selected disabled>Please select</option>
+                <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Nom"
+              [(ngModel)]="name"
+              required
+              minlength="3"
+              #nameInput="ngModel">
+            <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+              Name is required and needs to be at least 3 characters long.
+            </div>
+            </div>
+
+            <div class="form-group">
+              <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Email"
+              [(ngModel)]="email"
+              ng-model="required"
+              email
+              #emailInput="ngModel">
+            <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+              Needs to be a valid email.
+            </div>
+            </div>
+
+            <div class="form-group">
+              <input
+              type="text"
+              name="phone"
+              class="form-control"
+              placeholder="Téléphone"
+              [(ngModel)]="phone"
+              ng-model="required"
+              phone
+              #phoneInput="ngModel">
+            <div class="help is-error" *ngIf="phoneInput.invalid && phoneInput.dirty">
+              Needs to be a valid phone number.
+            </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <textarea
+              class="form-control"
+              name="message"
+              placeholder="Votre message"
+              [(ngModel)]="message"
+              required
+              message
+              #messageInput="ngModel" style="width: 100%; height: 150px;"></textarea>
+              <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+                Your message is required!
+              </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" (click)="open(content)"> <i class="fa fa-paper-plane"></i> Envoyer</button>
+
+              </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body" style="height:400px;"></div>
+        </div>
+        </div>
+
+        <div class="col-md-3 text-center">
+            <div class="card">
+                <div class="card-body" style="height:400px;">
+            <address>
+              <h5 class="text-success"><i class="fa fa-envelope"></i> Par Courrier</h5>
+                Biotic - Service Clients<br>
+                15 rue du petit chaton <br>75011 Paris
+                
+              </address><br/>
+
+              <address>
+                  <h5 class="text-success"><i class="fa fa-phone fa-rotate-90"></i>  Par Téléphone</h5>
+                  Du lundi au vendredi<br/> 9h - 18h <br/> 01 01 01 01 01
+              </address>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
+
+   </div>
+
+</form>
+
+</div>
+
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Contenu de votre message</h4>
+  </div>
+  <div class="modal-body">
+    {{MESSAGE_DATA}}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Confirmer</button>
+  </div>
+</ng-template>

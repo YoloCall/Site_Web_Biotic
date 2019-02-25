@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-toggleable-md navbar-light bg-light sticky-top">
+  <a class="navbar-brand" placement="bottom" ngbTooltip="Accueil"  [routerLink]="['/home']"><img src="../../assets/images/logos/biov2.png">
+  </a>
+
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isCollapsed = !isCollapsed" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a placement="bottom" ngbTooltip="Accueil" class="nav-link" [routerLink]="['/']"><i class="fa fa-home"></i></a>
+          </li>
+      <li class="nav-item">
+        <a placement="bottom" ngbTooltip="Nos produits" class="nav-link" [routerLink]="['/products']">Vitrine</a>
+      </li>
+
+      <li class="nav-item">
+        <a placement="bottom" ngbTooltip="Nos produits" class="nav-link" [routerLink]="['/products']">Corps </a>
+      </li>
+
+      <li class="nav-item">
+        <a placement="bottom" ngbTooltip="Nos produits" class="nav-link" [routerLink]="['/products']">Main </a>
+      </li>
+
+      <li class="nav-item">
+        <a placement="bottom" ngbTooltip="Nos produits" class="nav-link" [routerLink]="['/products']">Cheveux </a>
+      </li>
+
+      <li class="nav-item">
+        <a placement="bottom" ngbTooltip="Nos produits" class="nav-link" [routerLink]="['/products']">Homme </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="btn-group btn-group-toggle">
+    <a routerLink= "/login" class="btn btn-light" *ngIf = "!this.session.getstatus()" routerLinkActive="active" ngbTooltip="Se Connecter"><i class="fa fa-user text-success"></i></a>
+    <a (click)="onLogOut()" class="btn btn-light" *ngIf = "this.session.getstatus()" routerLinkActive="active" ngbTooltip="Se Deconnecter"><i class="fa fa-user text-danger"></i></a>
+    <button placement="bottom" ngbTooltip="Favoris" [ngClass]="{'btn btn-light pull-right': true}" ><i class="fa fa-heart"></i></button>
+    <button placement="bottom" ngbTooltip="Panier" [ngClass]="{'btn btn-light pull-right': true}" [routerLink]="['/cart']"><i class="fa fa-shopping-cart"></i> {{carQuantity}}</button>
+</div>
+</nav>
+
+<ngb-alert [dismissible]="false">
+  <div class="d-flex justify-content-center h-100">
+     <div class="searchbar">
+       <input class="search_input" type="text" name="" placeholder="Search...">
+       <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+     </div>
+   </div>
+ </ngb-alert>

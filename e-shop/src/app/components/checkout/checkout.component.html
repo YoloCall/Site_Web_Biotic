@@ -1,0 +1,122 @@
+<div style="background:transparent !important" class="jumbotron">
+    <h1 class="display-4 text-center"><i class="fa fa-check text-success" aria-hidden="true"></i> CheckOut</h1>
+
+    <div style="height:100px"></div>
+
+
+
+<div class="container">
+  <div class="row">
+       <div class="col-md-6">
+     <article>
+        <section class="box plate">
+        <header><h5> <i class="fa fa-lock" aria-hidden="true"></i>
+          IDENTIFICATION</h5></header>
+             <p>Ravis de vous retrouver ! Identifiez-vous pour passer votre commande plus rapidement.</p>
+              <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Vous êtes déjà client BIOTIC</h6>
+                      <div class="row">
+                        <div class ="col-md-8">
+                          <label for="firstName">Email</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="exemple@email.fr" value="" required>
+                            <div class="invalid-feedback">
+                                Valid email is required.
+                            </div>
+                            <br/>
+                            <label for="firstName">Mot de passe</label>
+                            <input type="password" class="form-control" id="password" placeholder="" value="" required><br/>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-success float-right" [routerLink]="['/paiement']">Se connecter</button>
+                  </div>
+                </div><br/>
+
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Vous êtes nouveau client BIOTIC</h6>
+                    <p class="card-text">Créez un compte et finalisez votre commande.</p>
+                    <button type="button" class="btn btn-success float-right" [routerLink]="['/userlog']">Créer un compte </button>
+                  </div>
+                </div><br/>
+       </section>
+      </article>
+  </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-5">
+
+      <section class="box plate">
+
+
+          <p class="font-weight-bold">Ajouter un code de réduction</p>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-success" id="basic-addon2">Ajouter</button>
+                </div>
+            </div>
+            <header><h6>RÉCAPITULATIF DE VOTRE COMMANDE</h6></header>
+      <div class="card">
+
+        <div class="card-body">
+        <ul class="list-unstyled small">
+          <li class="font-weight-bold">TOTAL </li>
+          <li class="font-weight-normal">Sous-total HT</li>
+          <li>Sous-total TTC</li>
+          <li>Livraison</li>
+          <li class="list-group-active">MONTANT TOTAL</li>
+        </ul>
+        </div>
+      </div>
+<ul class="list-group list-unstyled">
+
+</ul>
+
+        <div class="card-body">
+            <button type="button" class="btn btn-outline-success" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                    Afficher le détail de votre commande
+            </button>
+          </div>
+
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+
+                  <div class="col-sm-3">
+                      <img src="assets/images/image_carousel/flacon_creme_redim.jpg">
+                  </div>
+
+                  <div class="col-sm-5">
+                    <h6>Crème hydratante</h6>
+                    <div class="well">
+                      <ul class="list-group-unstyled small">
+                        <li>Quantité: <span class="quantity"></span></li>
+                        <li>Référence: 15245</li>
+                        <li>Contenance: 250 ml</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-4">
+
+                    <h6 class="font-weight-bold">Total: <span id="amount"></span>€</h6>
+                    <input class="col-sm-6 form-control" type="number" min="0" maxlength = "6">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+  </div>
+
+  </div>
+
+  </div>
+
+</div>

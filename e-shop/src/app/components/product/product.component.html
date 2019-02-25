@@ -1,0 +1,56 @@
+<div style="background:transparent !important" class="jumbotron">
+    <div class="col-md-3 col-sm-6">
+        <input [(ngModel)]="searchText" placeholder="search text goes here" class="form-control">
+      
+       <h1 class="display-4 text-success"><i class="fa fa-list" aria-hidden="true"></i> Product List</h1>
+      </div>
+   
+ 
+
+  <hr class="my-4">
+
+  <div class="row">
+    <!--   on peut ajouter d'autres critères dans le     grdFilter selon le modèlr du produit    --->
+    <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let product of products| grdFilter: {name: searchText, category: searchText}; let i=index;">
+            <div class="card">
+                <div class="product-grid7">
+                    <div class="product-image7">
+                  <a><img src="assets/images/{{product.photo}}" class="card-img-top pic-1"></a>
+                        <ul class="social">
+                            <li><a (click)="GoDetails(product)" class="fa fa-search"></a></li>
+                            <li><a (click)="addToHeart(product)" class="fa fa-heart"></a></li>
+                            <li><a (click)="addToCart(product)" class="fa fa-shopping-cart"></a></li>
+                        </ul>
+                    </div>
+                </div>
+              <div class="card-body">
+                  <p class="card-text small">{{product.category}}</p>
+                <h5 class="card-title text-center">
+                  <a (click)="GoDetails(product)" [routerLink]="['/product-details']">{{product.name}}</a>
+                </h5>
+                <h5 class="price"><span class="number">{{product.price}}</span> <span>€</span></h5>
+                <p class="card-text small">{{product.description}}</p>
+              </div>
+              <div class="card-footer">
+                <div class="rating text-success">
+                  <ngbd-rating (notify)='onNotify($event, product)'></ngbd-rating>
+                </div>
+              </div>
+
+            </div>
+            <hr class="style-two">
+            
+          </div>
+
+        </div>
+
+
+</div>
+
+<div class="col-md-3 col-sm-6">
+
+</div>
+
+
+
+

@@ -1,0 +1,146 @@
+<script type="text/javascript" src="cart.js"></script>
+
+<div style="background:transparent !important" class="jumbotron">
+<!-- ========================= SECTION CONTENT ========================= -->
+
+    <div class="container">
+      <h1 class="display-4 text-success"><i class="fa fa-shopping-cart"></i> Informations Panier</h1>
+
+    <div class="row">
+      <main class="col-sm-9">
+
+    <div class="container">
+
+        <table class="table table-xs">
+            <tr>
+              <th>Produit</th>
+              <th>Description</th>
+              <th class="text-right">Amount</th>
+              <th class="text-right">Price</th>
+              <th class="text-right">Total</th>
+            </tr>
+            <tr class="item-row">
+                <td><div class="img-wrap"> <img src="../../assets/images/thumb1.gif" class="img-thumbnail img-sm"/></div></td>
+              <td>
+                <p> <strong>Item 1</strong></p>
+                <p>Amet et esse do nostrud id irure cupidatat labore nulla irure laboris</p>
+                <button type="button" class="btn btn-light btn-xs" (click)="fnAddNumber()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                {{ data }}
+              <button type="button" class="btn btn-light btn-xs" (click)="deleteNumber()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+              </td>
+              <td class="text-right" title="Amount">3</td>
+              <td class="text-right" title="Price">2.00</td>
+              <td class="text-right" title="Total">6.00</td>
+            </tr>
+
+            <tr class="item-row item-row-last">
+                <td><div class="img-wrap"> <img src="../../assets/images/thumb3.gif" class="img-thumbnail img-sm"/></div></td>
+              <td>
+                <p> <strong>Item 2</strong></p>
+                <p>Amet et esse do nostrud id irure cupidatat labore nulla irure laboris</p>
+                <button type="button" class="btn btn-light btn-xs" (click)="fnAddNumber()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                {{ data }}
+              <button type="button" class="btn btn-light btn-xs" (click)="deleteNumber()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+              </td>
+              <td class="text-right" title="Amount">3</td>
+              <td class="text-right" title="Price">4.00</td>
+              <td class="text-right" title="Total">12.00</td>
+            </tr>
+
+            <tr class="item-row item-row-last">
+                <td><div class="img-wrap"> <img src="../../assets/images/thumb4.gif" class="img-thumbnail img-rounded"/></div></td>
+                <td>
+                  <p> <strong>Item 2</strong></p>
+                  <p>Amet et esse do nostrud id irure cupidatat labore nulla irure laboris</p>
+                  <button type="button" class="btn btn-light btn-xs" (click)="fnAddNumber()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                {{ data }}
+              <button type="button" class="btn btn-light btn-xs" (click)="deleteNumber()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                </td>
+                <td class="text-right" title="Amount">3</td>
+                <td class="text-right" title="Price">4.00</td>
+                <td class="text-right" title="Total">12.00</td>
+              </tr>
+
+            <tr class="total-row info">
+              <td class="text-right" colspan="4">Total</td>
+              <td class="text-right">18.00</td>
+            </tr>
+          </table>
+
+    </div> <!-- card.// -->
+
+      </main> <!-- col.// -->
+
+
+  <aside class="col-sm-3">
+    <p class="alert alert-success">Add USD 5.00 of eligible items to your order to qualify for FREE Shipping. </p>
+    <dl class="dlist-align">
+      <dt>Total price: </dt>
+      <dd class="text-right"> 568</dd>
+    </dl>
+    <dl class="dlist-align">
+      <dt>Discount:</dt>
+      <dd class="text-right">USD 658</dd>
+    </dl>
+    <dl class="dlist-align h4">
+      <dt>Total:</dt>
+      <dd class="text-right"><strong>USD 1,650</strong></dd>
+    </dl>
+    <hr>
+    <figure class="itemside mb-3">
+      <a href="#" class="aside"><img src="../../assets/images/icons/pay-visa.png"></a>
+       <div class="text-wrap small text-muted">
+   
+       </div>
+    </figure>
+    <figure class="itemside mb-3">
+      <a href="#" class="aside"> <img src="../../assets/images/icons/pay-mastercard.png"> </a>
+      <div class="text-wrap small text-muted">
+   
+      </div>
+    </figure>
+    <a class="nav-link" class="btn btn-success" [routerLink]="['/checkout']">Terminer ma commande </a>
+      </aside> <!-- col.// -->
+    </div>
+
+    </div> <!-- container .//  -->
+
+  </div>
+
+
+  <div style="background:transparent !important" class="jumbotron">
+
+      <hr class="my-4">
+      <table class="table table-bordered table-hover">
+        <tr>
+            <th>Option</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        <tr *ngFor="let item of items">
+            <td>
+                <a (click)="remove(item.product.id)">X</a>
+            </td>
+            <td>{{item.product.id}}</td>
+            <td>{{item.product.name}}</td>
+            <td>
+                <img src="assets/images/{{item.product.photo}}" width="50">
+            </td>
+            <td>{{item.product.price}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.product.price * item.quantity}}</td>
+        </tr>
+        <tr>
+            <td colspan="6">Total</td>
+            <td>{{total}}</td>
+        </tr>
+    </table>
+
+    </div>
+
+    
+    
